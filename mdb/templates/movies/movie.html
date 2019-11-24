@@ -50,15 +50,15 @@
                     <div class="col-md-6">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item text-secondary">
-                                <i class="fas fa-money-bill-alt"></i> Title:
+                                <i class="fas fa-paperclip"></i> Title:
                                 <span class="float-right">${{ movie.title }}</span>
                             </li>
                             <li class="list-group-item text-secondary">
-                                <i class="fas fa-bed"></i> Release date:
+                                <i class="fas fa-calendar-alt"></i> Release date:
                                 <span class="float-right">{{ movie.release_date }}</span>
                             </li>
                                 <li class="list-group-item text-secondary">
-                                <i class="fas fa-bath"></i> Director:
+                                <i class="fas fa-pen"></i> Director:
                                 <span class="float-right">{{ movie.director }}</span>
                             </li>
                         </ul>
@@ -66,11 +66,11 @@
                     <div class="col-md-6">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item text-secondary">
-                                <i class="fas fa-th-large"></i> Genre:
+                                <i class="fas fa-map-marker"></i> Genre:
                                 <span class="float-right">{{ movie.genre }}</span>
                             </li>
                             <li class="list-group-item text-secondary">
-                                <i class="fas fa-square"></i> Running time:
+                                <i class="fas fa-clock"></i> Running time:
                                 <span class="float-right">{{ movie.running_time }} minutes</span>
                             </li>
                         </ul>
@@ -85,27 +85,27 @@
                 </div>
             </div>
 
-            <!-- Actors 
             <div class="col-md-3">
                 {% if actors %}
                     {% for actor in actors %}
-                        <div class="card mb-3">
-                            <img class="card-img-top" src="{{ listing.realtor.photo.url }}" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Property Realtor</h5>
-                                <h6 class="text-secondary">{{ listing.realtor }}</h6>
+                        
+                            <div class="card mb-3">
+                                <img class="card-img-top" src="{{ actor.photo.url }}" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ actor.first_name }}</h5>
+                                    <h6 class="text-secondary">{{ actor.last_name }}</h6>
+                                </div>
                             </div>
-                        </div>
-                        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+                        
                     {% endfor %}
                 {% else %}
                     <div class="col-md-12">
                         <p>No Actors Available</p>
                     </div>
                 {% endif %}
-            </div>-->
+            </div>
 
         </div>
-    </div> <!-- en of #container -->
+    </div> <!-- end of #container -->
 </section>
 {% endblock %}

@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Movie, Starring
 
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ('title', 'running_time', 'release_date', 'director', 'genre')
+    list_display = ('films_id', 'title', 'running_time', 'release_date', 'director', 'genre')
     list_display_links = ('title', 'director', 'genre')
     list_filter = ('title', 'director', 'genre')
     search_fields = ('title', 'release_date', 'director', 'genre')

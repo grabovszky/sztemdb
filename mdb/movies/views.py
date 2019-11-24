@@ -2,7 +2,8 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import genre_choices
 
-from .models import Movie
+from .models import Movie, Starring
+from actors.models import Actor
 
 
 def index(request):
@@ -22,8 +23,14 @@ def index(request):
 def movie(request, films_id):
   movie = get_object_or_404(Movie, pk=films_id)
 
+  starring = Starring.objects.filter(film_id=movie.films_id)
+
+  actors = Actor.objects.order_by('-birth_date')
+
   context = {
-    'movie': movie
+    'movie': movie,
+    'actors': actors,
+    'starring': starring
   }
 
   return render(request, 'movies/movie.html', context)

@@ -5,7 +5,7 @@ from genres.models import Genre
 from actors.models import Actor
 
 class Movie(models.Model):
-    films_id = models.AutoField(primary_key=True)
+    films_id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     running_time = models.IntegerField()
