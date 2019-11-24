@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{ movie.title }} {% endblock %}
+
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">{{ movie.title }}</h1>
+                <p class="lead">
+                    <i class="fas fa-map-marker"></i> {{ movie.genre }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{% url 'movies' %}">Movies</a>
+                </li>
+                <li class="breadcrumb-item active">{{ movie.title }}</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+
+<!-- movie -->
+<section id="movie" class="py-4">
+    <div class="container">
+        <a href="{% url 'movies' %}" class="btn btn-light mb-4">Back To Movies</a>
+        <div class="row">
+            <div class="col-md-9">
+
+                <!-- Movie Main Image -->
+                <img src="{{ movie.photo.url }}" alt="" class="img-main img-fluid mb-3">
+
+                <!-- Fields -->
+                <div class="row mb-5 fields">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-money-bill-alt"></i> Title:
+                                <span class="float-right">${{ movie.title }}</span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-bed"></i> Release date:
+                                <span class="float-right">{{ movie.release_date }}</span>
+                            </li>
+                                <li class="list-group-item text-secondary">
+                                <i class="fas fa-bath"></i> Director:
+                                <span class="float-right">{{ movie.director }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-th-large"></i> Genre:
+                                <span class="float-right">{{ movie.genre }}</span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-square"></i> Running time:
+                                <span class="float-right">{{ movie.running_time }} minutes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- end of #fileds -->
+
+                <!-- Description -->
+                <div class="row mb-5">
+                    <div class="col-md-12">
+                        {{ movie.description }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actors 
+            <div class="col-md-3">
+                {% if actors %}
+                    {% for actor in actors %}
+                        <div class="card mb-3">
+                            <img class="card-img-top" src="{{ listing.realtor.photo.url }}" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Property Realtor</h5>
+                                <h6 class="text-secondary">{{ listing.realtor }}</h6>
+                            </div>
+                        </div>
+                        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-md-12">
+                        <p>No Actors Available</p>
+                    </div>
+                {% endif %}
+            </div>-->
+
+        </div>
+    </div> <!-- en of #container -->
+</section>
+{% endblock %}

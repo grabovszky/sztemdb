@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
+<section id="showcase">
+    <div class="container text-center">
+      <div class="movie-search p-5">
+        <div class="overlay p-5">
+          <h1 class="display-4 mb-4">
+            Movie Searching Just Got So Easy
+          </h1>
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
+            voluptatum tempore! Consectetur, id commodi!</p>
+          <div class="search">
+            <form action="{% url 'search' %}">
+              <!-- Form Row 1 -->
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label class="sr-only">Search MDb</label>
+                  <input type="text" name="search" class="form-control" placeholder="Search MDb">
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">Genres</label>
+                  <select name="genres" class="form-control">
+                    <option selected="true" disabled="disabled">Genres (All)</option>
+                    {% for key,value in genre_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-secondary btn-block mt-4" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+  <!-- Alerts -->
+  {% include 'partials/_alerts.html' %}
+
+  <!-- Movies -->
+  <section id="movies" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-3">Latest Movies</h3>
+      <div class="row">
+        {% if movies %}
+          {% for movie in movies %}
+            <!-- Listing 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card movie-preview">
+                <img class="card-img-top" src="{{ movie.photo.url }}" alt="">
+                <div class="card-body">
+                  <div class="movie-heading text-center">
+                    <h4 class="text-primary">{{ movie.title }}</h4>
+                    <p>
+                      <i class="fas fa-map-marker text-secondary"></i> {{ movie.genre }}</p>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-th-large"></i> Director: {{ movie.director }}</div>
+                  </div>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-bed"></i> Release date: {{ movie.release_date }}</div>
+                    <div class="col-6">
+                      <i class="fas fa-bath"></i> Running time: {{ movie.running_time }} min</div>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                        <p>{{ movie.description }}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <a href="{% url 'movie' movie.id %}" class="btn btn-primary btn-block">More Info</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>No Movies Available</p>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 bg-secondary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <i class="fas fa-comment fa-4x mr-4"></i>
+          <hr>
+          <h3>Reviews</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
+            hic dignissimos ratione ea quae.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-home fa-4x mr-4"></i>
+          <hr>
+          <h3>Movie Search</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
+            hic dignissimos ratione ea quae.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-suitcase fa-4x mr-4"></i>
+          <hr>
+          <h3>Movie Streaming</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
+            hic dignissimos ratione ea quae.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
