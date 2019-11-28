@@ -8,8 +8,10 @@ db.sqlite3
 /mdb/media
 /mdb/static
 
+
 ### Venv ###
 venv
 
 ### Misc ###
 .vscode
+static

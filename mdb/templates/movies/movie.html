@@ -51,7 +51,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item text-secondary">
                                 <i class="fas fa-paperclip"></i> Title:
-                                <span class="float-right">${{ movie.title }}</span>
+                                <span class="float-right">{{ movie.title }}</span>
                             </li>
                             <li class="list-group-item text-secondary">
                                 <i class="fas fa-calendar-alt"></i> Release date:
@@ -86,14 +86,14 @@
             </div>
 
             <div class="col-md-3">
-                {% if actors %}
-                    {% for actor in actors %}
+                {% if starrings %}
+                    {% for starring in starrings %}
                         
                             <div class="card mb-3">
-                                <img class="card-img-top" src="{{ actor.photo.url }}" alt="">
+                                <img class="card-img-top" src="{{ starring.actor_id.photo.url }}" alt="">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ actor.first_name }}</h5>
-                                    <h6 class="text-secondary">{{ actor.last_name }}</h6>
+                                    <h5 class="card-title">{{ starring.actor_id }}</h5>
+                                    <h6 class="text-secondary">{{ starring.character_name }}</h6>
                                 </div>
                             </div>
                         

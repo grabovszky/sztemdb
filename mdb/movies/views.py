@@ -23,14 +23,14 @@ def index(request):
 def movie(request, films_id):
   movie = get_object_or_404(Movie, pk=films_id)
 
-  starring = Starring.objects.filter(film_id=movie.films_id)
+  starrings = Starring.objects.filter(film_id=movie.films_id)
 
   actors = Actor.objects.order_by('-birth_date')
 
   context = {
     'movie': movie,
     'actors': actors,
-    'starring': starring
+    'starrings': starrings
   }
 
   return render(request, 'movies/movie.html', context)
