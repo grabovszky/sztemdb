@@ -43,7 +43,7 @@
             <div class="col-md-9">
 
                 <!-- Movie Main Image -->
-                <img src="{{ movie.photo.url }}" alt="" class="img-main img-fluid mb-3">
+                <img src="{{ movie.photo.url }}" alt="" class="img-main img-fluid w-25 mb-3">
 
                 <!-- Fields -->
                 <div class="row mb-5 fields">
@@ -85,11 +85,11 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="column mb-5">
                 {% if starrings %}
                     {% for starring in starrings %}
                         
-                            <div class="card mb-3">
+                            <div class="card mb-2">
                                 <img class="card-img-top" src="{{ starring.actor_id.photo.url }}" alt="">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ starring.actor_id }}</h5>
