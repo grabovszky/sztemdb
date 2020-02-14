@@ -15,24 +15,24 @@
             voluptatum tempore! Consectetur, id commodi!</p>
           <div class="search">
             <form action="{% url 'search' %}">
-              <!-- Form Row 1 -->
-              <div class="form-row">
-                <div class="col-md-10 mb-3">
-                  <label class="sr-only">Search MDb</label>
-                  <input type="text" name="search" class="form-control" placeholder="Search MDb">
-                </div>
-                <div class="col-md-2 mb-3">
-                  <label class="sr-only">Genres</label>
-                  <select name="genres" class="form-control">
-                    <option selected="true" disabled="disabled">Genres (All)</option>
-                    {% for key,value in genre_choices.items %}
-                      <option value="{{ key }}">{{ value }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-              <button class="btn btn-secondary btn-block mt-4" type="submit">Submit</button>
-            </form>
+                    <!-- Form -->
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label class="sr-only">Search MDb</label>
+                            <input type="text" name="keywords" class="form-control" placeholder="Search MDb">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="sr-only">Genres</label>
+                            <select name="genres" class="form-control">
+                                <option selected="true" disabled="disabled">Genres (All)</option>
+                                {% for key,value in genre_choices.items %}
+                                  <option value="{{ key }}">{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-block mt-4" type="submit">Submit</button>
+                </form>
           </div>
         </div>
       </div>
